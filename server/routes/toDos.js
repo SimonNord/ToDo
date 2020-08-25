@@ -1,36 +1,28 @@
 const express = require("express");
 const router = express.Router();
+const Todo = require("../models/Todo");
 
-const ToDo = require("../models/Todo");
-
-//get all totos
+// get all resources
 router.get("/", async (req, res) => {
-  console.log("trying to get todos");
   try {
-    let todos = await ToDo.find();
+    const todos = await Todo.find();
     res.json(todos);
   } catch (error) {
     res.json({ message: error });
   }
 });
 
-// create new todo
+// create resource
 router.post("/", async (req, res) => {
-  todo = new ToDo({
+  const todo = new Todo({
     text: req.body.text,
   });
   try {
-    savedToDo = await todo.save();
-    res.json(savedToDo);
+    const savedTodo = await todo.save();
+    res.json(savedTodo);
   } catch (error) {
     res.json({ message: error });
   }
 });
-
-// update todo
-router.patch("/:toDoId", (req, res) => {});
-
-// delete todos
-router.delete("/toDoId", (req, res) => {});
 
 module.exports = router;

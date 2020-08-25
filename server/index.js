@@ -1,8 +1,8 @@
 require("dotenv").config();
 
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
+const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -12,13 +12,13 @@ app.get("/", (req, res) => {
 });
 
 // toDo Routes
-const toDoRoutes = require("./routes/toDos");
-app.use("/todos", toDoRoutes);
+const todoRoutes = require("./routes/todos");
+app.use("/todos", todoRoutes);
 
 //Connection to MongoDB
 mongoose.connect(
   process.env.DATABASE_CONNECTION_STRING,
-  { useNewUrlParser: true, useUnifiedTopology: true },
+  { useNewUrlParser: true },
   () => {
     console.log("Connected to DB");
   }

@@ -25,4 +25,33 @@ router.post("/", async (req, res) => {
   }
 });
 
+// update resource
+
+router.patch("/:todoId", async (req, res) => {
+  try {
+    const updatedTodo = await Todo.updateOne(
+      { _id: req.params.todoId },
+      {
+        text: req.body.text,
+      }
+    );
+    res.json(updatedTodo);
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
+
+// delete resource
+
+router.delete("/:todoId", async (req, res) => {
+  try {
+    const deletedTodo = await Todo.findByIdAndDelete({
+      _id: req.params.todoId,
+    });
+    res.json(deletedTodo);
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
+
 module.exports = router;

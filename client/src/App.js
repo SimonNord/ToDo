@@ -12,7 +12,7 @@ const NewTodoInput = ({ newPost, handleChange, handleSubmit }) => {
         type="text"
         name="text"
       />
-      <button className="submitTodo" type="submit">
+      <button hidden className="submitTodo" type="submit">
         Add todo
       </button>
     </form>
@@ -70,8 +70,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ToDo list</h1>
-      <div className="Content">
+      <div className="toDoContent">
+        <h1>To-Do list</h1>
         <NewTodoInput
           newPost={newPost}
           handleChange={handleChange}

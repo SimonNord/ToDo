@@ -4,15 +4,51 @@
   box-sizing: border-box;
 }
 
+html {
+  background-size: cover;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    22deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  min-height: 100%;
+}
+
 h1 {
   text-align: center;
+  padding: 20px;
 }
 form {
-  width: 400px;
+  width: 100%;
 }
-.app {
-  padding-top: 40px;
+
+.Content {
+  -webkit-box-shadow: -5px 4px 14px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -5px 4px 14px 0px rgba(0, 0, 0, 1);
+  box-shadow: -5px 4px 14px 0px rgba(0, 0, 0, 1);
+  background: white;
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.newTodoForm {
+}
+
+.todoItem {
+  border-bottom: 1px solid black;
   display: flex;
-  justify-content: center;
-  justify-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.toDoItem:hover {
+  background-color: #afbe79;
+}
+
+input {
+  height: 100%;
+  padding: 5px;
 }

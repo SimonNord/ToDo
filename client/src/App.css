@@ -20,13 +20,9 @@ h1 {
   background-color: #2a7fb9;
   max-width: 400px;
   margin: 0 auto;
-  border-radius: 10px 10px 0 0;
   text-align: center;
   padding: 20px;
   color: white;
-}
-form {
-  width: 100%;
 }
 
 .newToDoInput {
@@ -51,5 +47,5 @@ form {
 }
 
 .todoItem:hover {
-  background-color: green;
+  background-color: #d0d0d0;
 }

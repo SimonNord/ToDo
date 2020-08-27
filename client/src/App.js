@@ -11,6 +11,7 @@ const NewTodoInput = ({ newPost, handleChange, handleSubmit }) => {
         value={newPost}
         type="text"
         name="text"
+        placeholder="Add new to-do"
       />
       <button hidden className="submitTodo" type="submit">
         Add todo

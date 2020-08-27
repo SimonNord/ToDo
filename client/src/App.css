@@ -1,18 +1,51 @@
 * {
+  font-family: "Roboto Slab", serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+html {
+  background-size: cover;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    22deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  min-height: 100%;
+}
+
 h1 {
+  background-color: #2a7fb9;
+  max-width: 400px;
+  margin: 0 auto;
   text-align: center;
+  padding: 20px;
+  color: white;
 }
-form {
-  width: 400px;
+
+.newToDoInput {
+  border-radius: 0;
+  width: 100%;
+  padding: 10px;
 }
-.app {
-  padding-top: 40px;
+
+.toDoContent {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 0 0 10px 10px;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.todoItem {
+  border-bottom: 1px solid black;
   display: flex;
-  justify-content: center;
-  justify-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+}
+
+.todoItem:hover {
+  background-color: #d0d0d0;
 }

@@ -4,19 +4,27 @@ const axios = require("axios");
 
 const NewTodoInput = ({ newPost, handleChange, handleSubmit }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="text"> New Todo </label>
-      <input onChange={handleChange} value={newPost} type="text" name="text" />
-      <button type="submit">Add todo</button>
+    <form className="newTodoForm" onSubmit={handleSubmit}>
+      <input
+        className="newToDoInput"
+        onChange={handleChange}
+        value={newPost}
+        type="text"
+        name="text"
+        placeholder="Add new to-do"
+      />
+      <button hidden className="submitTodo" type="submit">
+        Add todo
+      </button>
     </form>
   );
 };
 
 const TodoItem = ({ text }) => {
   return (
-    <div>
-      <h4>{text}</h4>
-      <button>Remove</button>
+    <div className="todoItem">
+      <span>{text}</span>
+      <button className="deleteButton">Remove</button>
     </div>
   );
 };
@@ -63,13 +71,15 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ToDo list</h1>
-      <NewTodoInput
-        newPost={newPost}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
-      <TodoList list={list} />
+      <div className="toDoContent">
+        <h1>To-Do list</h1>
+        <NewTodoInput
+          newPost={newPost}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
+        <TodoList list={list} />
+      </div>
     </div>
   );
 }

@@ -1,52 +1,8 @@
 import React, { useEffect, useState } from "react";
+import TodoList from "./components/TodoList/TodoList";
+import NewTodoInput from "./components/NewTodoInput/NewTodoInput";
 import "./App.css";
 const axios = require("axios");
-
-const NewTodoInput = ({ newPost, handleChange, handleSubmit }) => {
-  return (
-    <form className="newTodoForm" onSubmit={handleSubmit}>
-      <input
-        className="newToDoInput"
-        onChange={handleChange}
-        value={newPost}
-        type="text"
-        name="text"
-        placeholder="Add new to-do"
-      />
-      <button hidden className="submitTodo" type="submit">
-        Add todo
-      </button>
-    </form>
-  );
-};
-
-const TodoItem = ({ text, onRemoveItem, id }) => {
-  return (
-    <div className="todoItem">
-      <span>{text}</span>
-      <button onClick={onRemoveItem} id={id} className="deleteButton">
-        Remove
-      </button>
-    </div>
-  );
-};
-
-const TodoList = ({ list, onRemoveItem }) => {
-  return (
-    <div>
-      {list.map((item) => {
-        return (
-          <TodoItem
-            key={item._id}
-            id={item._id}
-            text={item.text}
-            onRemoveItem={onRemoveItem}
-          />
-        );
-      })}
-    </div>
-  );
-};
 
 function App() {
   const [list, setList] = useState([]);

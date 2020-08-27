@@ -20,20 +20,29 @@ const NewTodoInput = ({ newPost, handleChange, handleSubmit }) => {
   );
 };
 
-const TodoItem = ({ text }) => {
+const TodoItem = ({ text, onRemoveItem, id }) => {
   return (
     <div className="todoItem">
       <span>{text}</span>
-      <button className="deleteButton">Remove</button>
+      <button onClick={onRemoveItem} id={id} className="deleteButton">
+        Remove
+      </button>
     </div>
   );
 };
 
-const TodoList = ({ list }) => {
+const TodoList = ({ list, onRemoveItem }) => {
   return (
     <div>
       {list.map((item) => {
-        return <TodoItem key={item._id} text={item.text} />;
+        return (
+          <TodoItem
+            key={item._id}
+            id={item._id}
+            text={item.text}
+            onRemoveItem={onRemoveItem}
+          />
+        );
       })}
     </div>
   );
@@ -64,10 +73,18 @@ function App() {
     setNewPost(event.target.value);
   };
 
+  const onRemoveItem = (event) => {
+    const itemIdToRemove = event.target.id;
+    const deleteToDo = async () => {
+      await axios.delete(`http://localhost:5000/todos/${itemIdToRemove}`);
+    };
+    deleteToDo();
+  };
+
   // on component mount and update, get api data again.
   useEffect(() => {
     getTodoList();
-  }, [newPost]);
+  }, [list]);
 
   return (
     <div className="App">
@@ -78,7 +95,7 @@ function App() {
           handleChange={handleChange}
           handleSubmit={handleSubmit}
         />
-        <TodoList list={list} />
+        <TodoList list={list} onRemoveItem={onRemoveItem} />
       </div>
     </div>
   );

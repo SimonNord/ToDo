@@ -49,3 +49,7 @@ h1 {
 .todoItem:hover {
   background-color: #d0d0d0;
 }
+
+.App {
+  margin: 40px auto;
+}

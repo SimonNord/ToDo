@@ -1,0 +1,1 @@
+DATABASE_CONNECTION_STRING=mongodb+srv://<user>:<password>@<clustername>.gzcyz.mongodb.net/<databasename>?retryWrites=true&w=majority
